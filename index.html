@@ -3,118 +3,664 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WhaleShift | Watches & Jewelry</title>
-  <meta name="description" content="WhaleShift premium watches and jewelry. Shop elegant watches and jewelry online.">
-  <link rel="stylesheet" href="style.css">
+
+  <title>WhaleShift.com | Premium Watches, Wallets, Jewelry & Sunglasses</title>
+  <meta name="description" content="WhaleShift.com - Premium watches, wallets, jewelry and sunglasses. Cash on Delivery and WhatsApp orders available.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f8f5ef;
+      color: #111827;
+    }
+
+    /* NAVBAR */
+    nav {
+      background: #111827;
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      color: #d4af37;
+      font-size: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #d4af37;
+    }
+
+    .menu {
+      display: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 20px;
+      background:
+        linear-gradient(rgba(17,24,39,.82), rgba(17,24,39,.82)),
+        url("https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=1600&q=80")
+        center/cover;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      color: white;
+      font-size: 55px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #d4af37;
+    }
+
+    .hero p {
+      color: #eee;
+      font-size: 19px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 7px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .gold-btn {
+      background: #d4af37;
+      color: #111827;
+    }
+
+    .dark-btn {
+      border: 1px solid #d4af37;
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* SECTION */
+    section {
+      padding: 70px 6%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .section-title span {
+      color: #b8860b;
+    }
+
+    .section-title p {
+      color: #666;
+    }
+
+    /* CATEGORIES */
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .category {
+      background: white;
+      padding: 35px 20px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: .3s;
+    }
+
+    .category:hover {
+      transform: translateY(-8px);
+    }
+
+    .category-icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .category h3 {
+      margin-bottom: 10px;
+    }
+
+    .category a {
+      color: #b8860b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* PRODUCTS */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+    }
+
+    .product img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-info h3 {
+      margin-bottom: 8px;
+    }
+
+    .product-info p {
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .order-btn {
+      display: block;
+      text-align: center;
+      background: #111827;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .order-btn:hover {
+      background: #d4af37;
+      color: #111827;
+    }
+
+    /* WHY US */
+    .why-us {
+      background: #111827;
+      color: white;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 25px;
+    }
+
+    .feature-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .feature p {
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.8;
+      color: #555;
+      font-size: 17px;
+    }
+
+    /* FAQ */
+    .faq {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    details {
+      background: white;
+      margin-bottom: 12px;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.06);
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: #eee9df;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: 17px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+    }
+
+    footer .logo {
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: #bbb;
+      margin: 7px;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      text-decoration: none;
+      z-index: 2000;
+      box-shadow: 0 5px 20px rgba(0,0,0,.25);
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #111827;
+        flex-direction: column;
+        padding: 25px;
+        text-align: center;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .categories,
+      .products,
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .categories,
+      .products,
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 50px 5%;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <header class="header">
-    <a class="logo" href="#">Whale<span>Shift</span></a>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#watches">Watches</a>
-      <a href="#jewelry">Jewelry</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="cart" href="#products">Shop Now</a>
-  </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-text">
-        <p class="eyebrow">PREMIUM COLLECTION</p>
-        <h1>Time & Style,<br><span>Made for You.</span></h1>
-        <p>Discover premium watches and elegant jewelry designed to complete your look.</p>
-        <a class="btn" href="#products">Explore Collection</a>
-      </div>
-      <div class="hero-card">
-        <div class="watch-face">WS</div>
-        <p>Luxury • Elegance • Style</p>
-      </div>
-    </section>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home" class="logo">WhaleShift.com</a>
 
-    <section class="section" id="products">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">OUR COLLECTION</p>
-          <h2>Featured Products</h2>
+    <div class="menu" onclick="toggleMenu()">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#categories">Categories</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to <span>WhaleShift</span></h1>
+
+      <p>
+        Premium Watches, Wallets, Jewelry & Sunglasses
+        designed for people who value style and quality.
+      </p>
+
+      <a href="#products" class="btn gold-btn">Shop Now</a>
+      <a href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20place%20an%20order." 
+         class="btn dark-btn">
+        WhatsApp Order
+      </a>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories">
+
+    <div class="section-title">
+      <h2>Shop By <span>Category</span></h2>
+      <p>Discover our premium collection</p>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="category-icon">⌚</div>
+        <h3>Watches</h3>
+        <p>Premium watches for men & women.</p>
+        <a href="#products">Explore →</a>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">💎</div>
+        <h3>Jewelry</h3>
+        <p>Elegant jewelry for every occasion.</p>
+        <a href="#products">Explore →</a>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">🕶️</div>
+        <h3>Sunglasses</h3>
+        <p>Stylish sunglasses with premium looks.</p>
+        <a href="#products">Explore →</a>
+      </div>
+
+      <div class="category">
+        <div class="category-icon">👝</div>
+        <h3>Wallets</h3>
+        <p>Luxury wallets with elegant designs.</p>
+        <a href="#products">Explore →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+
+    <div class="section-title">
+      <h2>Featured <span>Products</span></h2>
+      <p>Premium products from WhaleShift</p>
+    </div>
+
+    <div class="products">
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=800&q=80">
+        <div class="product-info">
+          <h3>Premium Men's Watch</h3>
+          <p>Elegant luxury timepiece.</p>
+          <a class="order-btn" href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20order%20the%20Premium%20Men's%20Watch.">
+            Order on WhatsApp
+          </a>
         </div>
-        <div class="filters">
-          <button class="filter active" data-filter="all">All</button>
-          <button class="filter" data-filter="watch">Watches</button>
-          <button class="filter" data-filter="jewelry">Jewelry</button>
+      </div>
+
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80">
+        <div class="product-info">
+          <h3>Premium Leather Wallet</h3>
+          <p>Classic and stylish wallet.</p>
+          <a class="order-btn" href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20order%20the%20Premium%20Leather%20Wallet.">
+            Order on WhatsApp
+          </a>
         </div>
       </div>
 
-      <div class="products" id="productGrid">
-        <article class="product" data-category="watch">
-          <div class="product-image watch-img"><span>⌚</span></div>
-          <div class="product-info">
-            <small>WATCHES</small>
-            <h3>Emerald Men's Watch</h3>
-            <p>Elegant design • Leather strap • Quartz machine</p>
-            <strong>Rs. 4,999</strong>
-            <button class="order" onclick="orderProduct('Emerald Men\\'s Watch', '4999')">Order on WhatsApp</button>
-          </div>
-        </article>
-
-        <article class="product" data-category="watch">
-          <div class="product-image watch-img"><span>⌚</span></div>
-          <div class="product-info">
-            <small>WATCHES</small>
-            <h3>Rose Two-Tone Watch</h3>
-            <p>Premium look • Scratch-resistant • Water resistant</p>
-            <strong>Contact for Price</strong>
-            <button class="order" onclick="orderProduct('Rose Two-Tone Watch', '')">Order on WhatsApp</button>
-          </div>
-        </article>
-
-        <article class="product" data-category="jewelry">
-          <div class="product-image jewelry-img"><span>✦</span></div>
-          <div class="product-info">
-            <small>JEWELRY</small>
-            <h3>Classic Jewelry Set</h3>
-            <p>Elegant finish • Perfect for special occasions</p>
-            <strong>Contact for Price</strong>
-            <button class="order" onclick="orderProduct('Classic Jewelry Set', '')">Order on WhatsApp</button>
-          </div>
-        </article>
-
-        <article class="product" data-category="jewelry">
-          <div class="product-image jewelry-img"><span>♡</span></div>
-          <div class="product-info">
-            <small>JEWELRY</small>
-            <h3>Elegant Necklace</h3>
-            <p>Minimal luxury • Stylish everyday design</p>
-            <strong>Contact for Price</strong>
-            <button class="order" onclick="orderProduct('Elegant Necklace', '')">Order on WhatsApp</button>
-          </div>
-        </article>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80">
+        <div class="product-info">
+          <h3>Luxury Jewelry</h3>
+          <p>Elegant jewelry collection.</p>
+          <a class="order-btn" href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20order%20Luxury%20Jewelry.">
+            Order on WhatsApp
+          </a>
+        </div>
       </div>
-    </section>
 
-    <section class="banner">
-      <div>
-        <p class="eyebrow">WHaleShift</p>
-        <h2>Luxury that speaks for itself.</h2>
-        <p>Premium watches and jewelry for every occasion.</p>
+      <div class="product">
+        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80">
+        <div class="product-info">
+          <h3>Premium Sunglasses</h3>
+          <p>Modern and stylish sunglasses.</p>
+          <a class="order-btn" href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20order%20Premium%20Sunglasses.">
+            Order on WhatsApp
+          </a>
+        </div>
       </div>
-      <a class="btn light" href="#contact">Contact Us</a>
-    </section>
 
-    <section class="section contact" id="contact">
-      <p class="eyebrow">GET IN TOUCH</p>
-      <h2>Ready to order?</h2>
-      <p>Contact us on WhatsApp for product availability, colors and delivery details.</p>
-      <a class="btn" href="https://wa.me/923309973311?text=Assalam-o-Alaikum%2C%20I%20want%20to%20order%20a%20product%20from%20WhaleShift." target="_blank">WhatsApp Us</a>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- WHY US -->
+  <section class="why-us" id="why">
+
+    <div class="section-title">
+      <h2>Why Choose <span>WhaleShift?</span></h2>
+    </div>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Fast Delivery</h3>
+        <p>Fast shipping across Pakistan.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure Shopping</h3>
+        <p>Your information stays protected.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💳</div>
+        <h3>Easy Payment</h3>
+        <p>COD and online payment options.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">⭐</div>
+        <h3>Premium Quality</h3>
+        <p>Quality products at great value.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="section-title">
+      <h2>About <span>WhaleShift</span></h2>
+    </div>
+
+    <div class="about">
+      <p>
+        WhaleShift.com is a premium fashion and accessories store
+        offering stylish watches, wallets, jewelry and sunglasses.
+        Our goal is to bring modern luxury and everyday style
+        together in one place.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+
+    <div class="section-title">
+      <h2>Frequently Asked <span>Questions</span></h2>
+    </div>
+
+    <div class="faq">
+
+      <details>
+        <summary>Do you offer Cash on Delivery?</summary>
+        <p>Yes, Cash on Delivery is available across Pakistan.</p>
+      </details>
+
+      <details>
+        <summary>Can I order through WhatsApp?</summary>
+        <p>Yes. Simply click the WhatsApp button and send your order.</p>
+      </details>
+
+      <details>
+        <summary>Do you offer online payment?</summary>
+        <p>Yes. Online payment can be connected through a supported payment gateway.</p>
+      </details>
+
+      <details>
+        <summary>Where do you deliver?</summary>
+        <p>We deliver across Pakistan.</p>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="section-title">
+      <h2>Contact <span>WhaleShift</span></h2>
+    </div>
+
+    <p>📱 WhatsApp: 0330 9973311</p>
+    <p>🌐 Website: WhaleShift.com</p>
+
+    <a href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20need%20help."
+       class="btn gold-btn">
+      Contact Us on WhatsApp
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="logo">Whale<span>Shift</span></div>
-    <p>© 2026 WhaleShift. All rights reserved.</p>
+
+    <a href="#home" class="logo">WhaleShift.com</a>
+
+    <p>Luxury You Can Trust.</p>
+
+    <p>© 2026 WhaleShift.com — All Rights Reserved.</p>
+
   </footer>
 
-  <script src="script.js"></script>
+  <!-- FLOATING WHATSAPP -->
+  <a class="whatsapp"
+     href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20place%20an%20order."
+     target="_blank">
+    ☎
+  </a>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("active");
+      });
+    });
+  </script>
+
 </body>
 </html>
