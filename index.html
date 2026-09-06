@@ -385,6 +385,13 @@
       transform: scale(1.1);
     }
 
+    /* EMPTY STATE */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+    }
+
     /* MOBILE */
     @media (max-width: 900px) {
 
@@ -639,38 +646,46 @@
       const wallets = JSON.parse(localStorage.getItem('wallets')) || [];
 
       // Load watches
-      watchesContainer.innerHTML = watches.map(product => `
-        <div class="product">
-          <img src="${product.image}" alt="${product.name}">
-          <div class="product-info">
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <div class="price">Rs. ${product.price}</div>
-            ${product.colors ? `<div class="colors">Colors: ${product.colors}</div>` : ''}
-            ${product.stock ? `<div class="stock">Stock: ${product.stock} available</div>` : ''}
-            <a class="order-btn" href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(product.name)}.">
-              Order on WhatsApp
-            </a>
+      if (watches.length === 0) {
+        watchesContainer.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;">No watches available yet</div>';
+      } else {
+        watchesContainer.innerHTML = watches.map(product => `
+          <div class="product">
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-info">
+              <h3>${product.name}</h3>
+              <p>${product.description}</p>
+              <div class="price">Rs. ${product.price}</div>
+              ${product.colors ? `<div class="colors">Colors: ${product.colors}</div>` : ''}
+              ${product.stock ? `<div class="stock">Stock: ${product.stock} available</div>` : ''}
+              <a class="order-btn" href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(product.name)}.">
+                Order on WhatsApp
+              </a>
+            </div>
           </div>
-        </div>
-      `).join('');
+        `).join('');
+      }
 
       // Load wallets
-      walletsContainer.innerHTML = wallets.map(product => `
-        <div class="product">
-          <img src="${product.image}" alt="${product.name}">
-          <div class="product-info">
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <div class="price">Rs. ${product.price}</div>
-            ${product.colors ? `<div class="colors">Colors: ${product.colors}</div>` : ''}
-            ${product.stock ? `<div class="stock">Stock: ${product.stock} available</div>` : ''}
-            <a class="order-btn" href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(product.name)}.">
-              Order on WhatsApp
-            </a>
+      if (wallets.length === 0) {
+        walletsContainer.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;">No wallets available yet</div>';
+      } else {
+        walletsContainer.innerHTML = wallets.map(product => `
+          <div class="product">
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-info">
+              <h3>${product.name}</h3>
+              <p>${product.description}</p>
+              <div class="price">Rs. ${product.price}</div>
+              ${product.colors ? `<div class="colors">Colors: ${product.colors}</div>` : ''}
+              ${product.stock ? `<div class="stock">Stock: ${product.stock} available</div>` : ''}
+              <a class="order-btn" href="https://wa.me/923309973311?text=Hello%20WhaleShift%2C%20I%20want%20to%20order%20the%20${encodeURIComponent(product.name)}.">
+                Order on WhatsApp
+              </a>
+            </div>
           </div>
-        </div>
-      `).join('');
+        `).join('');
+      }
     }
 
     function toggleMenu() {
